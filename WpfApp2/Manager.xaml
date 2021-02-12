@@ -1,0 +1,186 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+             Title="Manager" Height="800" Width="1200">
+    <Grid  >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0.964"/>
+                <GradientStop Color="#FFF15151"/>
+                <GradientStop Color="#FFFB6363" Offset="0.466"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="500" />
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition Height="80.8"/>
+        </Grid.RowDefinitions>
+        <Image  Source="inventory-management-icon-3.jpg" Margin="10"  Grid.Row="0" Grid.Column="0" Width="100" />
+        <TextBlock HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Margin="0,25,0,23" FontSize="24" Width="490" FontWeight="SemiBold" TextDecorations="{x:Null}" Foreground="White" VerticalAlignment="Center" Height="64"><Run Text="Warehouse Management"/><LineBreak/><Run Text="System"/></TextBlock>
+
+        <Button  Grid.Row="0" Grid.Column="3" FontSize="25" Background="{x:Null}" Margin="4.8,5,5.2,4" BorderBrush="{x:Null}" >
+            <StackPanel>
+                <Image Margin="2" Source="userIcon.png" Stretch="None" HorizontalAlignment="Center" />
+                <Label x:Name="label1" Content="Welcome"  Width="191" HorizontalAlignment="Center" Foreground="White" RenderTransformOrigin="0.671,0.669" HorizontalContentAlignment="Center" MouseDoubleClick="label1_MouseDoubleClick"/>
+            </StackPanel>
+        </Button >
+        <TabControl TabStripPlacement="Top"   Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="608" Margin="10,25.333,0,-652" Grid.Row="1" VerticalAlignment="Top" Width="1173">
+
+            <TabItem Header="Add Stocks" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="250" Height="50" FontSize="24" >
+                <Grid Background="White" Margin="0,0,-0.8,-10.8" HorizontalAlignment="Right" Width="1167" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300" />
+                        <ColumnDefinition Width="229.6" />
+                        <ColumnDefinition Width="228"/>
+                        <ColumnDefinition Width="Auto" MinWidth="164.8"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="52.667" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="35" Margin="145.2,1,129,5.8" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="185" TextDecorations="Underline" Foreground="#FFE72C2C" Grid.Column="1" Grid.ColumnSpan="2">Add Stock</TextBlock>
+                    <TextBlock Grid.Column="1"  Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,6.2,16.2,493.8" Width="84" Height="32">Stock Id</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,53.2,16.2,446.8" Width="104" Height="32">Item Type</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,94.2,16.2,405.8" Width="118" Height="32" RenderTransformOrigin="0.523,0.094">Item Name</TextBlock>
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,191.2,16.2,308.8" Width="202" Height="32" Grid.Column="1">Shipment Recieved</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,236.2,16.2,263.8" Width="134" Height="32" >Dealer name</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,286.2,18.2,213.8" Width="132" Height="32" >Dealer email</TextBlock>
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,334.2,10.2,165.8" Width="175" Height="32" Grid.Column="1" >Dealer PhoneNo</TextBlock>
+                    <TextBox x:Name="stockId" Grid.Column="2"  Grid.Row="1" FontSize="25" Margin="13.8,4.2,14,490.8" PreviewTextInput="stockId_PreviewTextInput" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                    <TextBox x:Name="itemType" Grid.Column="2" Grid.Row="1" FontSize="25" Margin="13.8,50.2,14,445.8" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                    <TextBox x:Name="itemname" Grid.Column="2" Grid.Row="1" FontSize="25" Margin="13.8,92.2,14,402.8" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                    <TextBox x:Name="shipmentReceived" Grid.Column="2" Grid.Row="1" FontSize="25" Margin="13.8,188.2,14,304.8" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                    <TextBox x:Name="dealerName" Grid.Column="2" Grid.Row="1" FontSize="25" Margin="13.8,233.2,14,260.8" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                    <TextBox x:Name="dealerEmail" Grid.Column="2" Grid.Row="1" FontSize="25" Margin="13.8,283.2,14,210.8" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" />
+                    <TextBox x:Name="dealerPhoneNo" PreviewTextInput="dealerPhoneNo_PreviewTextInput" Grid.Column="2" Grid.Row="1" FontSize="25" Margin="13.8,331.2,14,162.8" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" RenderTransformOrigin="0.45,0.5" />
+                    <Button Content="Submit" Grid.Column="1" Margin="84.2,425.2,81,51.8" Padding="5" Background="#FFFF4545" Foreground="White" Click="Button_Click" RenderTransformOrigin="0.5,0.503" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,143.2,16.2,356.8" Width="202" Height="32"  Text="                 Quantity" Grid.Column="1"/>
+                    <TextBox x:Name="itemQuantity" PreviewTextInput="numberValidation" Grid.Column="2" Grid.Row="1" FontSize="25" Margin="13.8,140.2,14,354.8" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                    <TextBlock Height="36" HorizontalAlignment="Left" x:Name ="errorid" VerticalAlignment="Top" Width="150" Margin="225.8,8.2,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" />
+                    <TextBlock Height="36" HorizontalAlignment="Left" x:Name ="errortype" VerticalAlignment="Top" Width="150" Margin="225.8,52.2,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <TextBlock Height="36" HorizontalAlignment="Left" x:Name ="errorname" VerticalAlignment="Top" Width="150" Margin="225.8,91.2,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <TextBlock Height="36" HorizontalAlignment="Left" x:Name ="errorquantity" VerticalAlignment="Top" Width="150" Margin="225.8,140.2,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <TextBlock Height="36" HorizontalAlignment="Left" x:Name ="errorshipment" VerticalAlignment="Top" Width="150" Margin="225.8,192.2,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <TextBlock Height="36" HorizontalAlignment="Left" x:Name ="errordname" VerticalAlignment="Top" Width="150" Margin="225.8,228.2,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <TextBlock Height="36" HorizontalAlignment="Left" x:Name ="errordemail" VerticalAlignment="Top" Width="150" Margin="225.8,283.2,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <TextBlock Height="36" HorizontalAlignment="Left" x:Name ="errorphone" VerticalAlignment="Top" Width="150" Margin="225.8,335.2,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="View Stocks" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="250" Height="50" FontSize="24" >
+                <Grid Background="White" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="35" Margin="413.6,5,468.6,381" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="185" TextDecorations="{x:Null}" Foreground="#FFE72C2C" Grid.Column="1" Grid.RowSpan="2">View Stock</TextBlock>
+
+                    <DataGrid x:Name="mygridview2"  SelectedCellsChanged="mygridview_SelectedCellsChanged1" Height="360" Margin="0,10.6,9.6,10.2" Padding="0,0,0,20" HorizontalAlignment="Right"  HorizontalContentAlignment="Center" GridLinesVisibility="Horizontal" Background="#FFF0F0F0" AutoGenerateColumns="False" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="1048" Grid.Column="1" Grid.Row="1"   >
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="FontFamily" Value="Arial"/>
+                                <Setter Property="FontSize" Value="15px"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Background" Value="#FFF03D3D"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Height"  Value="30"/>
+                            </Style>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="BorderThickness" Value="1"></Setter>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Header="Id" Width="20" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Item Number" Width="100" Binding="{Binding itemNumber}"/>
+                            <DataGridTextColumn Header="Item Name" Width="100" Binding="{Binding itemName}"/>
+                            <DataGridTextColumn Header="Item Type" Width="130" Binding="{Binding itemType}" />
+                            <DataGridTextColumn Header="Quantity" Width="80" Binding="{Binding itemQuantity}"/>
+                            <DataGridTextColumn Header="Shipment Recieved" Width="140" Binding="{Binding shipmentRecieved}"/>
+                            <DataGridTextColumn Header="Dealer Name" Width="100" Binding="{Binding dName}" />
+                            <DataGridTextColumn Header="Dealer Email" Width="150" Binding="{Binding dEmail}"/>
+                            <DataGridTextColumn Header="Dealer Phone" Width="150" Binding="{Binding dPhone}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                    <Button x:Name="deleteRecord1" Content="Delete" Height="55" Margin="799.6,10.4,11.6,-15" RenderTransformOrigin="0.5,0.5" IsEnabled="False" Click="deleteRecord_Click1" Grid.Column="1" Grid.Row="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Transaction Report" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="250" Height="50" FontSize="24" >
+
+                <Grid Background="White" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="435.2"/>
+                        <RowDefinition Height="66.4"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="35" Margin="413.6,-181,468.6,185.4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="185" TextDecorations="{x:Null}" Foreground="#FFE72C2C" Grid.Column="1">View Stock</TextBlock>
+
+                    <TextBlock FontSize="35" Margin="356.6,0,381.6,4.4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="329" TextDecorations="Underline" Foreground="#FFE72C2C" Grid.Column="1">Transaction History</TextBlock>
+
+
+                    <DataGrid x:Name="mygridview"  SelectedCellsChanged="mygridview_SelectedCellsChanged"  Height="421" Margin="9.6,9.8,9.6,10" Padding="0,0,0,20" HorizontalAlignment="Center" HorizontalContentAlignment="Center" GridLinesVisibility="Horizontal" Background="#FFF0F0F0" AutoGenerateColumns="False" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="1048" Grid.Column="1" Grid.Row="1" >
+
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="FontFamily" Value="Arial"/>
+                                <Setter Property="FontSize" Value="15px"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Background" Value="#FFF03D3D"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Height"  Value="30"/>
+                            </Style>
+                            <Style TargetType="DataGridCell">
+
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Header="Id" Width="20" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Item Type" Width="130" Binding="{Binding itemType}"/>
+                            <DataGridTextColumn Header="Item Name" Width="130" Binding="{Binding itemName}" />
+                            <DataGridTextColumn Header="Old Quantity" Width="100" Binding="{Binding oldQuantity}"/>
+                            <DataGridTextColumn Header="Withdraw" Width="70" Binding="{Binding quantityWithdraw}"/>
+                            <DataGridTextColumn Header="Updated Quantity" Width="140" Binding="{Binding updateQuantity}" />
+                            <DataGridTextColumn Header="Employee Id" Width="150" Binding="{Binding empName}"/>
+                            <DataGridTextColumn Header="Date and Time" Width="230" Binding="{Binding datetime}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="deleteRecord" Content="Delete" Margin="849.6,434.6,9.6,10" RenderTransformOrigin="1.495,6.888" IsEnabled="False" Click="deleteRecord_Click" Grid.Column="1" Grid.Row="1" Width="208" HorizontalAlignment="Center" Grid.RowSpan="2"/>
+
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>
+

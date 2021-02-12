@@ -1,0 +1,218 @@
+﻿<Window x:Class="WpfApp2.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+      Title="Admin" Height="800" Width="1200.8">
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0.964"/>
+                <GradientStop Color="#FFF15151"/>
+                <GradientStop Color="#FFFB6363" Offset="0.466"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="500" />
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition Height="80.8"/>
+        </Grid.RowDefinitions>
+        <Image  Source="inventory-management-icon-3.jpg" Margin="10"  Grid.Row="0" Grid.Column="0" Width="100" />
+        <TextBlock HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Margin="0,25,0,23" FontSize="24" Width="490" FontWeight="SemiBold" TextDecorations="{x:Null}" Foreground="White" VerticalAlignment="Center" Height="64"><Run Text="Warehouse Management"/><LineBreak/><Run Text="System"/></TextBlock>
+
+        <Button  Grid.Row="0" Grid.Column="3" FontSize="25" Background="{x:Null}" Margin="4.8,5,5.2,4" BorderBrush="{x:Null}" >
+            <StackPanel>
+                <Image Margin="2" Source="userIcon.png" Stretch="None" HorizontalAlignment="Center" />
+                <Label x:Name="label1" Content="Welcome"  Width="191" HorizontalAlignment="Center" Foreground="White" RenderTransformOrigin="0.671,0.669" HorizontalContentAlignment="Center" MouseDoubleClick="label1_MouseDoubleClick"/>
+
+
+            </StackPanel>
+        </Button >
+        <TabControl TabStripPlacement="Top"   Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="608" Margin="10,25.333,0,-652" Grid.Row="1" VerticalAlignment="Top" Width="1173">
+            <TabItem Header="View Stocks" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="250" Height="50" FontSize="24" >
+                <Grid Background="White" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="35" Margin="413.6,5,468.6,381" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="185" TextDecorations="{x:Null}" Foreground="#FFE72C2C" Grid.Column="1" Grid.RowSpan="2">View Stock</TextBlock>
+                    <DataGrid x:Name="mygridview1"   Height="360" Margin="0,10.6,9.6,10.2" Padding="0,0,0,20" HorizontalAlignment="Right" SelectedCellsChanged="mygridview_SelectedCellsChanged1" HorizontalContentAlignment="Center" GridLinesVisibility="Horizontal" Background="#FFF0F0F0" AutoGenerateColumns="False" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="1048" Grid.Column="1" Grid.Row="1"   >
+
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="FontFamily" Value="Arial"/>
+                                <Setter Property="FontSize" Value="15px"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Background" Value="#FFF03D3D"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Height"  Value="30"/>
+                            </Style>
+                            <Style TargetType="DataGridCell">
+
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Header="Id" Width="20" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Item Number" Width="100" Binding="{Binding itemNumber}"/>
+                            <DataGridTextColumn Header="Item Type" Width="130" Binding="{Binding itemType}" />
+                            <DataGridTextColumn Header="Item Name" Width="100" Binding="{Binding itemName}"/>
+                            <DataGridTextColumn Header="Quantity" Width="80" Binding="{Binding itemQuantity}"/>
+                            <DataGridTextColumn Header="Shipment Recieved" Width="140" Binding="{Binding shipmentRecieved}"/>
+                            <DataGridTextColumn Header="Dealer Name" Width="100" Binding="{Binding dName}" />
+                            <DataGridTextColumn Header="Dealer Email" Width="150" Binding="{Binding dEmail}"/>
+                            <DataGridTextColumn Header="Dealer Phone" Width="150" Binding="{Binding dPhone}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                    <Button x:Name="deleteRecord1" Content="Delete" Margin="0,5,10,-13.6" IsEnabled="False" Click="deleteRecord_Click1" Grid.Row="2" Grid.Column="1" Width="250" HorizontalAlignment="Right"/>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Add/Remove Staff" Margin="0,0,-30,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="280" Height="50" FontSize="24" >
+                <Grid Background="White" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="auto"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="38.4" />
+                        <RowDefinition Height="82.4" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="25" />
+
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="25" />
+
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="35" Margin="137,4,-167.4,0.4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="324" TextDecorations="{x:Null}" Foreground="#FFE72C2C" Grid.Column="2" Grid.ColumnSpan="2">Add/Remove Staff</TextBlock>
+
+                    <DataGrid x:Name="myadmingrid2" HorizontalAlignment="Left" Height="435" Margin="11.6,27.6,-573.4,0" VerticalAlignment="Top" Width="597" SelectedCellsChanged="myadmingrid_SelectedCellsChanged2" Grid.Column="3" Grid.Row="1" Grid.RowSpan="9" AutoGenerateColumns="False" >
+
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="FontFamily" Value="Arial"/>
+                                <Setter Property="FontSize" Value="15px"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Background" Value="#FFF03D3D"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Height"  Value="30"/>
+                            </Style>
+                            <Style TargetType="DataGridCell">
+
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Header="Id" Width="40" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="type" Width="100" Binding="{Binding type}"/>
+                            <DataGridTextColumn Header="username" Width="130" Binding="{Binding username}" />
+                            <DataGridTextColumn Header="password" Width="100" Binding="{Binding password}"/>
+                            <DataGridTextColumn Header="email" Width="150" Binding="{Binding email}"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock  Text="User Type" FontSize="26" FontFamily="Arial"   Grid.Row="2" Grid.Column="1" Margin="0,25.2,20,27.2" HorizontalAlignment="Right" Width="117" VerticalAlignment="Center" Height="30"/>
+                    <TextBlock  Text="User Name" FontSize="26" FontFamily="Arial"   Grid.Row="3" Grid.Column="1" Margin="0,20.8,20,20.6" Width="135" HorizontalAlignment="Right" VerticalAlignment="Center" Height="29"/>
+                    <TextBlock  Text="Password" FontSize="26" FontFamily="Arial"   Grid.Row="5" Grid.Column="1" Margin="0,20.6,20,20.8" HorizontalAlignment="Right" Width="117" VerticalAlignment="Center" Height="29"/>
+                    <TextBlock  Text="Email" FontSize="26" FontFamily="Arial"   Grid.Row="7" Grid.Column="1" Margin="0,20.4,20,20" HorizontalAlignment="Right" Width="72" VerticalAlignment="Center" Height="30"/>
+                    <TextBox x:Name="username" FontSize="25" Foreground="Black" Margin="10,14.8,8.4,14.6" Grid.Column="2" Grid.Row="3"/>
+                    <TextBox x:Name="email" FontSize="25" Foreground="Black" Margin="10,15.4,8.4,15" Grid.Column="2" Grid.Row="7"/>
+                    <TextBlock x:Name ="erroremail" Width="226" Margin="10,60.4,0,70.2" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Left" Grid.RowSpan="3"  />
+
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="9.8,0.2,0,0" VerticalAlignment="Top" Width="79" Height="38" FontFamily="Arial" FontSize="20" Click="Button_Click_1" Grid.Column="1" Grid.Row="9"/>
+                    <Button x:Name="delete2" Content="Delete" HorizontalAlignment="Left" Margin="185.8,0.2,0,0" VerticalAlignment="Top" Width="75" Height="38" FontFamily="Arial" FontSize="20" IsEnabled="False" Click="delete_Click2" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2"/>
+                    <Button x:Name="update" Content="Update" HorizontalAlignment="Left" Margin="165,0.2,0,0" VerticalAlignment="Top" Width="75" Height="38" FontFamily="Arial" FontSize="20" IsEnabled="False" Click="Button_Click_3" Grid.Column="2" Grid.Row="9"/>
+                    <ComboBox x:Name="combobox" Margin="10,20.2,10,15.2" FontSize="20" FontFamily="Arial" HorizontalContentAlignment="Center" Grid.Column="2" Grid.Row="2"/>
+                    <PasswordBox x:Name="password" Margin="10,14.6,8.4,14.8" Grid.Column="2" Grid.Row="5"/>
+                    <TextBlock Height="34" HorizontalAlignment="Left" x:Name ="errorusername" VerticalAlignment="Top" Width="226" Margin="10,60.8,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" />
+                    <TextBlock HorizontalAlignment="Left" x:Name ="errorpassword" Width="221" Margin="15,60.6,0,0" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="2" Grid.Row="5" Grid.RowSpan="3" Height="35" VerticalAlignment="Top" />
+
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="Transaction Report" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="250" Height="50" FontSize="24" >
+                <Grid Background="White" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontSize="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  TextDecorations="Underline" Foreground="#FFFF1010" Text="Transaction Report" Margin="372.6,0,410.6,4.4" Width="284" Height="46" Grid.Column="1"/>
+
+                    <DataGrid x:Name="mygridview3"   Height="389" Margin="79.6,33.8,79.6,-372.4" Padding="0,0,0,20" HorizontalAlignment="Center" SelectedCellsChanged="mygridview_SelectedCellsChanged3" HorizontalContentAlignment="Center" GridLinesVisibility="Horizontal" Background="#FFF0F0F0" AutoGenerateColumns="False" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="908" Grid.Column="1" Grid.Row="2" >
+
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="FontFamily" Value="Arial"/>
+                                <Setter Property="FontSize" Value="15px"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Background" Value="#FFF03D3D"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Height"  Value="30"/>
+                            </Style>
+                            <Style TargetType="DataGridCell">
+
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Header="Id" Width="40" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Item Type" Width="100" Binding="{Binding itemType}"/>
+                            <DataGridTextColumn Header="Item Name" Width="100" Binding="{Binding itemName}" />
+                            <DataGridTextColumn Header="Old Quantity" Width="100" Binding="{Binding oldQuantity}"/>
+                            <DataGridTextColumn Header="Withdraw" Width="100" Binding="{Binding quantityWithdraw}"/>
+                            <DataGridTextColumn Header="Updated Quantity" Width="140" Binding="{Binding updateQuantity}" />
+                            <DataGridTextColumn Header="Employee Id" Width="100" Binding="{Binding empName}"/>
+                            <DataGridTextColumn Header="Date/Time" Width="100" Binding="{Binding datetime}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="deleteRecord3" Content="Delete" Height="55" Margin="804.6,434.8,79.6,-439.4" RenderTransformOrigin="6.679,2.685" IsEnabled="False" Click="deleteRecord_Click3" Grid.Column="1" Grid.Row="2"/>
+
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

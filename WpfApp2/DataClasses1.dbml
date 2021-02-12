@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="warehousedb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\warehousedb.mdf;Integrated Security=True" SettingsObjectName="WpfApp2.Properties.Settings" SettingsPropertyName="warehousedbConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.InsertStock" Member="InsertStocks">
+    <Type Name="InsertStock">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="itemNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="itemType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="itemName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="itemQuantity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="shipmentRecieved" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.login" Member="logins">
+    <Type Name="login">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WithdrawItemTable" Member="WithdrawItemTables">
+    <Type Name="WithdrawItemTable">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="itemType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="itemName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oldQuantity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="quantityWithdraw" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="updateQuantity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="empName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="datetime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
